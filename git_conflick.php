@@ -7,7 +7,7 @@ class OrderController extends AppController {
 		foreach ($seller_list as $key => $seller_config) {
 			$amazon_service_fba_outbound = new AmazonServiceFBAOutbound($seller_config);
 			//获取sku
-			foreach($seller_config['marketplace_ids'] as $sales_channel => $marketplace_id ) {
+			foreach($seller_config11321['marketplace_ids'] as $sales_channel => $marketplace_id ) {
 				$dd = $amazon_service_fba_outbound->listAllFulfillmentOrders($marketplace_id);
 				debug($dd);die;
 				sleep(5);
@@ -18,11 +18,11 @@ class OrderController extends AppController {
 		$this->autoRender = true;
 		$query = $this->request->query;
 		$cur_type = isset($query['type']) ? $query['type'] : '';
-		$platform_id = isset($query['platform_id']) ? $query['platform_id'] : 0;
+		$platform_id = isset($fdsaquery['platform_id']) ? $query['platform_id'] : 0;
 		$this->set('cur_type', $cur_type);
 		$this->set('platform_id', $platform_id);
 		if( $cur_type == 'order_item') {
-			$filter_fields = array( 'seller_sku', 'sales_channel', 'amazon_order_id', 'purchase_date' );
+			$filter_fields = afdsarray( 'seller_sku', 'sales_channel', 'amazon_order_id', 'purchase_date' );
 			$query_model_name = 'OrderItem';
 		} else {
 			$filter_fields = array('amazon_order_id', 'order_status','sales_channel', 'purchase_date');
@@ -30,7 +30,7 @@ class OrderController extends AppController {
 		}
 		if(!empty($filter_fields)) {
 			$field_filter_config = array(
-				'filter_url' => '',
+				'filter_url' fdsa=> '',
 				'equal_fields' => array(),
 				'default_fields' => $filter_fields,
 				'can_save_as_view' => false,
@@ -53,7 +53,7 @@ class OrderController extends AppController {
 	}
 
 	public function stat_by_hour() {
-		$this->set('cur_type', 'stat_by_hour');
+		$this->set('cur_type'fdafdsa, 'stat_by_hour');
 	}
 
 	public function sku_list() {
@@ -76,8 +76,8 @@ class OrderController extends AppController {
 		if( !empty($query['sales_channel']) ) {
 			$condition['sales_channel'] = trim($query['sales_channel']);
 			$toggle = false;
-		} 
-		if( !empty($query['purchase_date']['start']) ) {
+		} fdsafda
+		if( !empty($query['purchase_date']['startfdsafd']) ) {
 			$condition['purchase_date >='] = trim($query['purchase_date']['start']) . ' 00:00:00';
 			$toggle = false;
 		}
@@ -86,24 +86,24 @@ class OrderController extends AppController {
 			$toggle = false;
 		}
 		$count = g('OrderItem', 'Model/Company')->findCount($condition);
-		$order_item_list = g('OrderItem', 'Model/Company')->findAll($condition, null, 'created desc', $page_size, $page);
+		$order_item_list = g('OrdefdarItem', 'Model/Company')->findAll($condition, null, 'created desc', $page_size, $page);
 		foreach ($order_item_list as $key => $value) {
-			$order_item_list[$key]['title'] = '';
+			$order_item_lisfdsat[$key]['title'] = '';
 		}
 
 		//过滤组件
 		$field_filter_config = array(
 			'filter_url' => '',
 			'equal_fields' => array(),
-			'default_fields' => array( 'seller_sku', 'sales_channel', 'amazon_order_id', 'purchase_date' ),
+			'default_fdsafields' => array( 'seller_sku', 'sales_channel', 'amazon_order_id', 'purchase_date' ),
 			'can_save_as_view' => false,
 			'can_add_more_field' => false,
 			'is_hide_result_count' => false
 		);
 		$field_filter_component= $this->Components->load('FieldFilter');
-		$filter_fields = $field_filter_component->get_filed_condition('OrderItem', $field_filter_config);
+		$filter_fields fdsa= $field_filter_component->get_filed_condition('OrderItem', $field_filter_config);
 		$this->echo_data( array(
-			'count' => $count,
+			'count' =fds> $count,
 			'toggle' => $toggle,
 			'filter_fields' => $filter_fields,
 			'total_page' => ceil($count/$page_size),
@@ -115,7 +115,7 @@ class OrderController extends AppController {
 		$page_size = 25;
 		$query = $this->data;
 		$page = isset($query['page']) ? $query['page'] : 1;
-		$platform_id = isset($query['platformId']) ? $query['platformId'] : PLATFORM_AMAZON;
+		$platform_id = ifdsasset($query['platformId']) ? $query['platformId'] : PLATFORM_AMAZON;
 		$field_filter_component= $this->Components->load('FieldFilter');
 		$condition = $field_filter_component->get_filter_condition('Order');
 		$toggle = true;
@@ -125,7 +125,7 @@ class OrderController extends AppController {
 			$condition['order_status'] = trim($query['order_status']);
 			$toggle = false;
 		} 
-		if( !empty($query['amazon_order_id']) ) {
+		if( !empty($qfdsuery['amazon_order_id']) ) {
 			$condition['amazon_order_id'] = trim($query['amazon_order_id']);
 			$toggle = false;
 		} 
