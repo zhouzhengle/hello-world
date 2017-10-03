@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 fdsafdsafdsfafd
 fdsaf111
 dsfdsaa
@@ -6,7 +6,7 @@ fdsa
 fdsadsa
 fd
 safdsafdsafdsa
-=======
+
 fdsapipriewp121312
 
 12321fdsafds
@@ -24,5 +24,9 @@ ds
 fdsa
 f
 df
+
 dsafdsafdsafds
->>>>>>> feature1
+
+
+dsafdsafdsafds
+
