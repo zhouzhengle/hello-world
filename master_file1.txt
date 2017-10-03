@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fdsafdsafdsfafd
 fdsaf111
 dsfdsaa
@@ -5,3 +6,23 @@ fdsa
 fdsadsa
 fd
 safdsafdsafdsa
+=======
+fdsapipriewp121312
+
+12321fdsafds
+
+12321fdsafdsa
+
+f
+dsa
+fd
+ag12321
+
+f
+daf
+ds
+fdsa
+f
+df
+dsafdsafdsafds
+>>>>>>> feature1
